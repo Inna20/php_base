@@ -13,8 +13,20 @@
     <title><?php echo $title; ?></title>
 </head>
 <body>
+
+
+
 	<h1><?php echo $h1; ?></h1>
 	<p>Текущий год: <?php echo $year; ?>
+	<p>Переменная a = <?echo $a; ?></p>
+	<p>Переменная b = <?echo $b; ?></p>
+
+<?php
+
+	list($b, $a) = [$a, $b];
+
+?>
+
 	<p>Переменная a = <?echo $a; ?></p>
 	<p>Переменная b = <?echo $b; ?></p>
 
@@ -23,7 +35,7 @@
 	$b = $a-$b;
 	$a = $a-$b;
 ?>
-
+<hr>
 	<p>Результат:</p>
 	<p>Переменная a = <?echo $a; ?></p>
 	<p>Переменная b = <?echo $b; ?></p>
