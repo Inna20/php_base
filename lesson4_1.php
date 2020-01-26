@@ -1,5 +1,8 @@
 <?php
+	include_once('lesson4_2.php');
+
 	$dirname = 'imgs';
+	$method = 'GET';
 
 	if (!empty($_FILES['img'])) { // загружаем файл
 		$upploaddir = __DIR__ . '/' . $dirname;
@@ -10,6 +13,7 @@
 		} else {
 		    echo "Ошибка загрузки<br>";
 		}
+		$method = 'POST';
 	}
 
 	$gallery = scandir($dirname);
@@ -83,7 +87,7 @@
 		?>
 	</ul>
 	<div id="modal">
-		<img width=700 id="modal_img" src="#" onclick="hideImg()">
+		<img width=700 id="modal_img" src="" onclick="hideImg()">
 	</div>
 	<div id="veil"></div>
 
