@@ -26,11 +26,48 @@ echo "<hr>";
 2. Присвоить переменной $а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от $a до 15.
 */
 
-$a = rand(0, 15);
+$a = $b = rand(0, 15);
 
 for($a; $a <= 15; $a++) { // 15 case'ов рука не поднялась писать
 	echo $a .' ';
 }
+
+echo "<hr>";
+
+switch ($b) {
+	case '0':
+		echo '0 ';
+	case '1':
+		echo '1 ';
+	case '2':
+		echo '2 ';
+	case '3':
+		echo '3 ';
+	case '4':
+		echo '4 ';
+	case '5':
+		echo '5 ';
+	case '6':
+		echo '6 ';
+	case '7':
+		echo '7 ';
+	case '8':
+		echo '8 ';
+	case '9':
+		echo '9 ';
+	case '10':
+		echo '10 ';
+	case '11':
+		echo '11 ';
+	case '12':
+		echo '12 ';
+	case '13':
+		echo '13 ';
+	case '14':
+		echo '14 ';
+	case '15':
+		echo '15 ';
+};
 
 echo "<hr>";
 
@@ -112,6 +149,19 @@ function power($val, $pow, $res = 1, $cur = 0) {
 echo power(2, 8);
 
 echo "<hr>";
+
+function power2($val, $pow) {
+	if ($pow == 0) {
+		return 1;
+	}
+	$pow--;
+	return power2($val, $pow--) * $val;
+}
+// Проверка
+echo power2(2, 10);
+
+echo "<hr>";
+
 
 /*
 7. *Написать функцию, которая вычисляет текущее время и возвращает его в формате с правильными склонениями, например:
