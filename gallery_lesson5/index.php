@@ -9,6 +9,7 @@ if (!empty($_GET['id'])) {
 } else {
 	$content = getGallery($db);
 }
+mysqli_close($db);
 
 $tmpl = file_get_contents('template.tpl');
 echo str_replace('{CONTENT}', $content, $tmpl);
