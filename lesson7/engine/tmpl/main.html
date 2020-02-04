@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+		#gallery {
+			display: flex;
+			list-style-type: none;
+		}
+		#gallery li {
+			margin-right: 10px;
+		}
+	</style>
 </head>
 <body>
 <ul>
@@ -11,6 +20,7 @@
     <li><a href="?p=user&a=one">Пользователь</a></li>
     <li><a href="?p=index&a=about">О нас</a></li>
     <li><a href="?p=auth">Авторизация</a></li>
+    <li><a href="?p=product">Каталог товаров</a></li>
 </ul>
 
     <p style="color: red">{{MSG}}</p>

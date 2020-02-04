@@ -7,7 +7,8 @@ function getConnect()
 {
     static $link;
     if (empty($link)) {
-        $link = mysqli_connect('localhost', 'root', '', 'gbphp');
+        $link = mysqli_connect('localhost', 'root', '', 'geek_php_base');
+		mysqli_set_charset($link, "utf8");
     }
     return $link;
 }
