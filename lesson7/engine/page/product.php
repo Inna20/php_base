@@ -2,7 +2,10 @@
 
 function indexAction()
 {
-    return getProducts();
+    $content = getProducts();
+
+    $tmpl = file_get_contents(dirname(__DIR__) . '/tmpl/catalog.tpl');
+    return str_replace('{CONTENT}', $content, $tmpl);
 }
 
 function oneAction()
@@ -18,7 +21,7 @@ function oneAction()
     // Если есть отзывы
     $reviews = getRewiews($id);
 
-    $tmpl = file_get_contents(dirname(__DIR__) . '/tmpl/item.tpl');
+    $tmpl = file_get_contents(dirname(__DIR__) . '/tmpl/product.tpl');
     return str_replace(array('{PRODUCT_ID}', '{CONTENT}', '{REVIEW}'), array($id, $content, $reviews), $tmpl);
 }
 
