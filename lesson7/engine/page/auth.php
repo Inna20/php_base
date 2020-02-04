@@ -11,7 +11,11 @@ function indexAction()
 php;
 
     if (!empty($_SESSION['user'])) {
-        $html =<<<php
+        $html = <<<php
+
+    <p>Ваше имя: {$_SESSION['user']['name']}</p>
+    <p>Ваш телефон: {$_SESSION['user']['phone']}</p>
+    <p>Ваш email: {$_SESSION['user']['email']}</p>
     <a href="?p=auth&a=exit">Выход</a>
 php;
     }
@@ -33,12 +37,12 @@ function authAction()
         exit;
     }
 
-    $login = $_POST['login'];
+    $login    = $_POST['login'];
     $password = $_POST['password'];
 
     $sql = "
         SELECT 
-            id, login, password, is_admin 
+            id, login, password, name, phone, email
         FROM 
             users 
         WHERE 
@@ -57,15 +61,14 @@ function authAction()
 
 //    password_hash("asdasd", PASSWORD_DEFAULT);
     if (password_verify($password, $user['password'])) {
-        $_SESSION['user'] = $login;
-        $msg = 'Добро пожаловать';
+        $_SESSION['user'] = $user;
+        $msg = 'Добро пожаловать ' . $user['name'];
     }
 
     $_SESSION['msg'] = $msg;
 
     header('Location: ?p=auth');
     exit;
-
 }
 
 function exitAction()

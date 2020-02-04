@@ -25,3 +25,9 @@ function clearStr($str)
 
     return $str;
 }
+
+function redirect($page = "index", $msg = "") {
+	$_SESSION['msg'] = $msg; 
+    header('location: ?p=' . $page);
+    exit;
+}

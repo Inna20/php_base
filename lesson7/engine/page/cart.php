@@ -16,7 +16,7 @@ function indexAction() {
 function addAction() {
 
 	if (empty($_GET['id'])) {
-		productRedirect("Такого товара не существует"); 
+		redirect("cart", "Такого товара не существует");
     }
     $id = (int)$_GET['id'];
 
@@ -24,7 +24,7 @@ function addAction() {
     addToCart($product);
 
     // обратно в корзину
-    productRedirect("Товар \"".$product['name']."\" добавлен в корзину"); 
+    redirect("cart", "Товар \"".$product['name']."\" добавлен в корзину");
 
 }
 
@@ -37,7 +37,7 @@ function delAction() {
     }
   
     // обратно в корзину
-    productRedirect(); 
+    redirect("cart", "");
 
 }
 
@@ -90,14 +90,8 @@ sql;
     $item = mysqli_fetch_assoc($product);
 
     if (!$item) {
-        productRedirect("Такого товара не существует"); 
+        redirect("cart", "Такого товара не существует");
     }
 
     return $item;
-}
-
-function productRedirect($msg = "") {
-	$_SESSION['msg'] = $msg; 
-    header('location: ?p=cart');
-    exit;
 }
