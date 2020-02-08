@@ -1,4 +1,19 @@
 <?php
+
+
+// $arr = [
+//     ['count' => 2],
+//     ['count' => 5],
+
+// ];
+// // var_dump($arr);die; 
+// var_dump(array_filter($arr, function($item){
+//         return $item['count'];
+//     }));
+
+//     die;
+
+
 session_start();
 
 include __DIR__ . '/lib/lib.php';

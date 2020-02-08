@@ -3,6 +3,7 @@
 function indexAction()
 {
     $html =<<<php
+    <h1>Авторизация</h1>
     <form method="post" action="?p=auth&a=auth">
         <input name="login" type="text" placeholder="login">
         <input name="password" type="text" placeholder="password">
@@ -42,7 +43,7 @@ function authAction()
 
     $sql = "
         SELECT 
-            id, login, password, name, phone, email
+            id, login, password, name, phone, email, address, is_admin
         FROM 
             users 
         WHERE 

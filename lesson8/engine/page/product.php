@@ -42,9 +42,14 @@ sql;
                             <img src="{$res['url']}" width="150" />
                             <h4>{$res['name']}</h4>
                             </a>
+sql;
+    if (!empty($_SESSION['user']['id'])) { // возможность добавить в корзину только для авторизованного пользователя
+
+        $content .= <<<sql
                             <a href="?p=cart&a=add&id={$res['id']}">Купить</a>
                         </li>
 sql;
+        }
     }
     $content .= '</ul>';
 
